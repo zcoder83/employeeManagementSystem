@@ -7,22 +7,33 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import UpdateEmployeeComponent from "./components/UpdateEmployeeComponent";
 
 function App() {
-  return (
-    <div>
-      <Router>
-        <HeaderComponent />
-        <div className="container">
-          <Routes>
-            <Route path="/" exact element = {<ListEmployeeComponent />}></Route>
-            <Route path="/employees" element = {<ListEmployeeComponent />}></Route>
-            <Route path="/add-employee" element={<CreateEmployeeComponent />}></Route>
-            <Route path="/update-employee/:id" element={<UpdateEmployeeComponent />}></Route>
-          </Routes>
+    return (
+        <div>
+            <Router>
+                <HeaderComponent />
+                <div className="container">
+                    <Routes>
+                        <Route
+                            path="/"
+                            exact
+                            element={<ListEmployeeComponent />}
+                        ></Route>
+                        <Route
+                            path="/employees"
+                            element={<ListEmployeeComponent />}
+                        ></Route>
+                        {/* step 01 - adding '/:id' */}
+                        <Route
+                            path="/add-employee/:id"
+                            element={<CreateEmployeeComponent />}
+                        ></Route>
+                        {/* <Route path="/update-employee/:id" element={<UpdateEmployeeComponent />}></Route> */}
+                    </Routes>
+                </div>
+                <FooterComponent />
+            </Router>
         </div>
-        <FooterComponent />
-      </Router>
-    </div>
-  );
+    );
 }
 
 export default App;
