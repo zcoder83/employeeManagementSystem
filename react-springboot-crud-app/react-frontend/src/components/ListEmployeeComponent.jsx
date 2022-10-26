@@ -8,6 +8,7 @@ class ListEmployeeComponent extends Component {
             employees: []
         }
         this.addEmployee = this.addEmployee.bind(this);
+        this.editEmployee = this.editEmployee.bind(this);
     }
     componentDidMount() {
         EmployeeService.getEmployees().then( res => {
@@ -17,12 +18,14 @@ class ListEmployeeComponent extends Component {
     addEmployee() {
         this.props.navigate('/add-employee');
     }
-
+    editEmployee(id) {
+        this.props.navigate(`/update-employee/${id}`);
+    }
     render() {
         return (
             <div>
                 <h2 className='text-center'>Employee List</h2>
-                <div className='row'>
+                <div>
                     <button className='btn btn-primary' onClick={this.addEmployee}>Add Employee</button>
                 </div>
                 <div className='row'>
@@ -43,6 +46,9 @@ class ListEmployeeComponent extends Component {
                                         <td>{employee.firstName}</td>
                                         <td>{employee.lastName}</td>
                                         <td>{employee.emailId}</td>
+                                        <td>
+                                            <button onClick={ () => this.editEmployee(employee.id)} className="btn btn-info">Update</button>
+                                        </td>
                                     </tr>
                                 )
                             }
