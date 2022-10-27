@@ -4,7 +4,8 @@ import HeaderComponent from "./components/HeaderComponent";
 import ListEmployeeComponent from "./components/ListEmployeeComponent";
 import CreateEmployeeComponent from "./components/CreateEmployeeComponent";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import UpdateEmployeeComponent from "./components/UpdateEmployeeComponent";
+// import UpdateEmployeeComponent from "./components/UpdateEmployeeComponent";
+import ViewEmployeeComponent from "./components/ViewEmployeeComponent";
 
 function App() {
     return (
@@ -26,6 +27,10 @@ function App() {
                         <Route
                             path="/add-employee/:id"
                             element={<CreateEmployeeComponent />}
+                        ></Route>
+                        <Route
+                            path="/view-employee/:id"
+                            element={<ViewEmployeeComponent />}
                         ></Route>
                         {/* <Route path="/update-employee/:id" element={<UpdateEmployeeComponent />}></Route> */}
                     </Routes>
